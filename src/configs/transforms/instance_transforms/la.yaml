@@ -1,0 +1,10 @@
+train:
+  data_object:
+    _target_: src.transforms.ReplicationPad
+    target_seconds: 5.0
+    sample_rate: 16000
+inference:
+  data_object:
+    _target_: src.transforms.ReplicationPad
+    target_seconds: 5.0
+    sample_rate: 16000
