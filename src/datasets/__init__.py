@@ -1,1 +1,1 @@
-from src.datasets.example import ExampleDataset
+from src.datasets.logical_acess_dataset import LogicalAcessDataset
