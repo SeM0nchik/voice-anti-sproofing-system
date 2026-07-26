@@ -1,1 +1,1 @@
-from src.loss.example import ExampleLoss
+from src.loss.spoof_loss import SpoofLoss
