@@ -77,6 +77,7 @@ class Trainer(BaseTrainer):
             for met in self.metrics["inference"]:
                 self.evaluation_metrics.update(met.name, met.compute())
             self.writer.set_step(epoch * self.epoch_len, part)
+            self.writer.add_scalar("epoch", epoch)
             self._log_scalars(self.evaluation_metrics)
             self._log_batch(batch_idx, batch, part)
 

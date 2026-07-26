@@ -2,3 +2,5 @@ train: []
 inference:
   - _target_: src.metrics.EERMetric
     name: "EER"
+  - _target_: src.metrics.Accuracy
+    name: "Accuracy"
