@@ -2,7 +2,7 @@ from torch import nn
 
 
 class ReplicationPad(nn.Module):
-    def __init__(self, target_seconds=5.0, sample_rate=16000):
+    def __init__(self, target_seconds, sample_rate):
         super().__init__()
 
         self.target_len = int(target_seconds * sample_rate)
