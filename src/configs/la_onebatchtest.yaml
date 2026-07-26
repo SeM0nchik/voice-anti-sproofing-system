@@ -1,0 +1,10 @@
+defaults:
+  - baseline
+  - override /datasets: la_onebatchtest
+  - _self_
+trainer:
+  log_step: 1
+  n_epochs: 200
+  epoch_len: 1
+  override: True
+  save_period: 200
