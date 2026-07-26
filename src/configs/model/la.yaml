@@ -1,0 +1,5 @@
+_target_: src.model.LCNNModel
+n_freq: 863
+n_frames: 616
+dropout: 0.75
+n_class: 2
