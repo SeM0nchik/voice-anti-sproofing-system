@@ -16,15 +16,15 @@ lr_scheduler:
 loss_function:
   _target_: src.loss.SpoofLoss
 trainer:
-  log_step: 50
+  log_step: 100
   n_epochs: 100
-  epoch_len: 500
+  epoch_len: 5000
   device_tensors: ["data_object", "labels"]
   resume_from: null
   device: auto
   override: False
   monitor: "min dev_EER"
   save_period: 5
-  early_stop: ${trainer.n_epochs}
+  early_stop: 15
   save_dir: "saved"
   seed: 1
