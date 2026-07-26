@@ -124,7 +124,7 @@ class Inferencer(BaseTrainer):
 
         if metrics is not None:
             for met in self.metrics["inference"]:
-                metrics.update(met.name, met(**batch))
+                met.update(**batch)
 
         # Some saving logic. This is an example
         # Use if you need to save predictions on disk
@@ -167,6 +167,9 @@ class Inferencer(BaseTrainer):
         self.model.eval()
 
         self.evaluation_metrics.reset()
+        if self.metrics is not None:
+            for met in self.metrics["inference"]:
+                met.reset()
 
         # create Save dir
         if self.save_path is not None:
@@ -184,5 +187,9 @@ class Inferencer(BaseTrainer):
                     part=part,
                     metrics=self.evaluation_metrics,
                 )
+
+            if self.metrics is not None:
+                for met in self.metrics["inference"]:
+                    self.evaluation_metrics.update(met.name, met.compute())
 
         return self.evaluation_metrics.result()
