@@ -1,3 +1,4 @@
+import os
 import warnings
 
 import hydra
@@ -9,6 +10,7 @@ from src.datasets.data_utils import get_dataloaders
 from src.trainer import Trainer
 from src.utils.init_utils import set_random_seed, setup_saving_and_logging
 
+os.environ.setdefault("HYDRA_FULL_ERROR", "1")
 warnings.filterwarnings("ignore", category=UserWarning)
 
 

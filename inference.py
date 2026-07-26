@@ -1,3 +1,4 @@
+import os
 import warnings
 
 import hydra
@@ -9,6 +10,7 @@ from src.trainer import Inferencer
 from src.utils.init_utils import set_random_seed
 from src.utils.io_utils import ROOT_PATH
 
+os.environ.setdefault("HYDRA_FULL_ERROR", "1")
 warnings.filterwarnings("ignore", category=UserWarning)
 
 
@@ -60,7 +62,7 @@ def main(config):
     for part in logs.keys():
         for key, value in logs[part].items():
             full_key = part + "_" + key
-            print(f"    {full_key:15s}: {value}")
+            print(f"    {full_key:15s}: {value}")  # noqa: E231
 
 
 if __name__ == "__main__":

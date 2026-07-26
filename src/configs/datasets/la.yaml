@@ -1,18 +1,18 @@
 train:
   _target_: src.datasets.LogicalAcessDataset
-  protocol_path: "/kaggle/input/awsaf49/asvpoof-2019-dataset/LA/LA/ASVspoof2019_LA_cm_protocols/ASVspoof2019.LA.cm.train.trn.txt"
-  audio_path: "/kaggle/input/awsaf49/asvpoof-2019-dataset/LA/LA"
+  protocol_path: "/kaggle/input/datasets/awsaf49/asvpoof-2019-dataset/LA/LA/ASVspoof2019_LA_cm_protocols/ASVspoof2019.LA.cm.train.trn.txt"
+  audio_path: "/kaggle/input/datasets/awsaf49/asvpoof-2019-dataset/LA/LA"
   name: "train"
   instance_transforms: ${transforms.instance_transforms.train}
 dev:
   _target_: src.datasets.LogicalAcessDataset
-  protocol_path: "/kaggle/input/awsaf49/asvpoof-2019-dataset/LA/LA/ASVspoof2019_LA_cm_protocols/ASVspoof2019.LA.cm.dev.trl.txt"
-  audio_path: "/kaggle/input/awsaf49/asvpoof-2019-dataset/LA/LA"
+  protocol_path: "/kaggle/input/datasets/awsaf49/asvpoof-2019-dataset/LA/LA/ASVspoof2019_LA_cm_protocols/ASVspoof2019.LA.cm.dev.trl.txt"
+  audio_path: "/kaggle/input/datasets/awsaf49/asvpoof-2019-dataset/LA/LA"
   name: "dev"
   instance_transforms: ${transforms.instance_transforms.inference}
 eval:
   _target_: src.datasets.LogicalAcessDataset
-  protocol_path: "/kaggle/input/awsaf49/asvpoof-2019-dataset/LA/LA/ASVspoof2019_LA_cm_protocols/ASVspoof2019.LA.cm.eval.trl.txt"
-  audio_path: "/kaggle/input/awsaf49/asvpoof-2019-dataset/LA/LA"
+  protocol_path: "/kaggle/input/datasets/awsaf49/asvpoof-2019-dataset/LA/LA/ASVspoof2019_LA_cm_protocols/ASVspoof2019.LA.cm.eval.trl.txt"
+  audio_path: "/kaggle/input/datasets/awsaf49/asvpoof-2019-dataset/LA/LA"
   name: "eval"
   instance_transforms: ${transforms.instance_transforms.inference}
