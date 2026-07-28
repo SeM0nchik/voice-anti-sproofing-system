@@ -1,76 +1,28 @@
-# PyTorch Template for DL projects
+# Voice Anti-Spoofing System (ASVspoof2019 LA, LCNN)
 
 <p align="center">
   <a href="#about">About</a> •
-  <a href="#tutorials">Tutorials</a> •
-  <a href="#examples">Examples</a> •
   <a href="#installation">Installation</a> •
+  <a href="#dataset">Dataset</a> •
   <a href="#how-to-use">How To Use</a> •
-  <a href="#useful-links">Useful Links</a> •
-  <a href="#credits">Credits</a> •
+  <a href="#results">Results</a> •
+  <a href="#project-structure">Project Structure</a> •
+  <a href="#credits--citation">Credits</a> •
   <a href="#license">License</a>
-</p>
-
-<p align="center">
-<a href="https://github.com/Blinorot/pytorch_project_template/generate">
-  <img src="https://img.shields.io/badge/use%20this-template-green?logo=github">
-</a>
-<a href="https://github.com/Blinorot/pytorch_project_template/blob/main/LICENSE">
-   <img src=https://img.shields.io/badge/license-MIT-blue.svg>
-</a>
-<a href="https://github.com/Blinorot/pytorch_project_template/blob/main/CITATION.cff">
-   <img src="https://img.shields.io/badge/cite-this%20repo-purple">
-</a>
 </p>
 
 ## About
 
-This repository contains a template for [PyTorch](https://pytorch.org/)-based Deep Learning projects.
+This repository implements a **Countermeasure (CM) system for voice anti-spoofing** on the
+**Logical Access (LA)** partition of the [ASVspoof2019](https://www.asvspoof.org/index2019.html)
+dataset, using the **LCNN (Light CNN)** architecture, implemented from scratch following the
+[STC Antispoofing System paper](https://arxiv.org/abs/1904.05576).
 
-The template utilizes different python-dev techniques to improve code readability. Configuration methods enhance reproducibility and experiments control.
+The model receives an STFT-based spectrogram of an utterance and predicts whether it is
+`bonafide` (genuine human speech) or `spoof` (synthesized/converted/replayed speech).
 
-The repository is released as a part of the [HSE DLA course](https://github.com/markovka17/dla), however, can easily be adopted for any DL-task.
-
-This template is the official recommended template for the [EPFL CS-433 ML Course](https://www.epfl.ch/labs/mlo/machine-learning-cs-433/).
-
-**New:** we added a [HF Main](https://github.com/Blinorot/pytorch_project_template/tree/hf_main) variant of the template with [HuggingFace](https://huggingface.co/) Integration for multi-GPU and multi-node training, automatic mixed precision, gradient accumulation, and seamless HuggingFace Ecosystem Compatibility.
-
-> 📖 **If you use this template in your work, please cite this repository or include a reference. Attribution supports the project and encourages continued development.**
-
-## Tutorials
-
-This template utilizes experiment tracking techniques, such as [WandB](https://docs.wandb.ai/) and [Comet ML](https://www.comet.com/docs/v2/), and [Hydra](https://hydra.cc/docs/intro/) for the configuration. It also automatically reformats code and conducts several checks via [pre-commit](https://pre-commit.com/). If you are not familiar with these tools, we advise you to look at the tutorials below:
-
-- [Python Dev Tips](https://github.com/ebezzam/python-dev-tips): information about [Git](https://git-scm.com/doc), [pre-commit](https://pre-commit.com/), [Hydra](https://hydra.cc/docs/intro/), and other stuff for better Python code development. The YouTube recording of the workshop is available [here](https://youtu.be/okxaTuBdDuY).
-
-- [Seminar on R&D Coding 2025](https://youtu.be/PE1zaW5it_A): Seminar from the [LauzHack Deep Learning Bootcamp](https://github.com/LauzHack/deep-learning-bootcamp/) with discussion on logging, project-based coding, configuration, and reproducibility. The materials can be found [here](https://github.com/LauzHack/deep-learning-bootcamp/tree/summer25/day05).
-
-- [Seminar on R&D Coding 2024](https://youtu.be/sEA-Js5ZHxU): Seminar from the [LauzHack Deep Learning Bootcamp](https://github.com/LauzHack/deep-learning-bootcamp/) with template discussion and reasoning. It also explains how to work with [WandB](https://docs.wandb.ai/). The seminar materials can be found [here](https://github.com/LauzHack/deep-learning-bootcamp/blob/main/day03/Seminar_WandB_and_Coding.ipynb).
-
-- [HSE DLA Course Introduction Week](https://github.com/markovka17/dla/tree/2024/week01): combines the two seminars above into one with some updates, including an extra example for [Comet ML](https://www.comet.com/docs/v2/).
-
-- [PyTorch Basics](https://github.com/markovka17/dla/tree/2024/week01/intro_to_pytorch): several notebooks with [PyTorch](https://pytorch.org/docs/stable/index.html) basics and corresponding seminar recordings from the [LauzHack Deep Learning Bootcamp](https://github.com/LauzHack/deep-learning-bootcamp/).
-
-To start working with a template, just click on the `use this template` button.
-
-<a href="https://github.com/Blinorot/pytorch_project_template/generate">
-  <img src="https://img.shields.io/badge/use%20this-template-green?logo=github">
-</a>
-
-You can choose any of the branches as a starting point. [Set your choice as the default branch](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/changing-the-default-branch) in the repository settings. You can also [delete unnecessary branches](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository).
-
-## Examples
-
-> [!IMPORTANT]
-> The main branch leaves some of the code parts empty or fills them with dummy examples, showing just the base structure. The final users can add code required for their own tasks.
-
-You can find examples of this template completed for different tasks in other branches:
-
-- [HF Main](https://github.com/Blinorot/pytorch_project_template/tree/hf_main): the variant of the `main` branch with [HuggingFace](https://huggingface.co/) Integration. Supports multi-GPU and multi-node training, automatic mixed precision, gradient accumulation, and seamless HuggingFace Ecosystem Compatibility.
-
-- [Image classification](https://github.com/Blinorot/pytorch_project_template/tree/example/image-classification): simple classification problem on [MNIST](https://yann.lecun.com/exdb/mnist/) and [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html) datasets.
-
-- [ASR](https://github.com/Blinorot/pytorch_project_template/tree/example/asr): template for the automatic speech recognition (ASR) task. Some of the parts (for example, `collate_fn` and beam search for `text_encoder`) are missing for studying purposes of [HSE DLA course](https://github.com/markovka17/dla).
+This project was built for the HSE Deep Learning in Audio (DLA) course homework, on top of
+[Blinorot/pytorch_project_template](https://github.com/Blinorot/pytorch_project_template).
 
 ## Installation
 
@@ -112,37 +64,81 @@ Installation may depend on your task. The general steps are the following:
    pre-commit install
    ```
 
+
+## Dataset
+
+The model is trained/evaluated on the **LA partition of ASVspoof2019**
+(`ASVspoof2019_LA_{train,dev,eval}/flac/*.flac` + `ASVspoof2019.LA.cm.*.trn/trl.txt` protocols).
+
+Dataset paths are configured in `src/configs/datasets/`:
+
+- `la.yaml` — full `train`/`dev`/`eval` split, expects Kaggle-style paths
+  (`/kaggle/input/awsaf49/asvpoof-2019-dataset/LA/LA`). Use this when running on Kaggle/Colab
+  or once you've downloaded the full dataset locally with matching paths.
+
 ## How To Use
 
-To train a model, run the following command:
+### Training
 
 ```bash
-python3 train.py -cn=CONFIG_NAME HYDRA_CONFIG_ARGUMENTS
+python3 train.py -cn=baseline HYDRA_CONFIG_ARGUMENTS
 ```
 
-Where `CONFIG_NAME` is a config from `src/configs` and `HYDRA_CONFIG_ARGUMENTS` are optional arguments.
+Trains an LCNN model on `train`, evaluates on `dev`/`eval` every epoch, and saves checkpoints
+to `saved/<run_name>/`. Logging goes to WandB or Comet ML (`src/configs/writer`).
 
-To run inference (evaluate the model or save predictions):
+### Inference / evaluation
+
+On Kaggle/Colab (dataset paths already match `src/configs/datasets/la.yaml`):
 
 ```bash
-python3 inference.py HYDRA_CONFIG_ARGUMENTS
+python3 inference.py inferencer.from_pretrained=PATH_TO_CHECKPOINT.pth
 ```
 
-## Useful Links:
+## Results
 
-You may find the following links useful:
+| Checkpoint (epoch) | EER (eval, %) |
+|---|---|
+| 10 | **5.276** |
 
-- [Report branch](https://github.com/Blinorot/pytorch_project_template/tree/report): Guidelines for writing a scientific report/paper (with an emphasis on DL projects).
+EER is computed on the full ASVspoof2019 LA eval set (71 237 utterances) with
+[this script](https://github.com/Blinorot/deep-learning-research/blob/summer_2026/hw/calculate_eer.py).
 
-- [CLAIRE Template](https://github.com/CLAIRE-Labo/python-ml-research-template): additional template by [EPFL CLAIRE Laboratory](https://www.epfl.ch/labs/claire/) that can be combined with ours to enhance experiments reproducibility via [Docker](https://www.docker.com/).
+## Project Structure
 
-- [Mamba](https://github.com/mamba-org/mamba) and [Poetry](https://python-poetry.org/): alternatives to [Conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) and [pip](https://pip.pypa.io/en/stable/installation/) package managers given above.
-
-- [Awesome README](https://github.com/matiassingers/awesome-readme): a list of awesome README files for inspiration. Check the basics [here](https://github.com/PurpleBooth/a-good-readme-template).
+```
+.
+├── src
+│   ├── configs
+│   │   ├── dataloader
+│   │   ├── datasets
+│   │   ├── metrics
+│   │   ├── model
+│   │   ├── transforms
+│   │   │   ├── batch_transforms
+│   │   │   └── instance_transforms
+│   │   ├── writer
+│   │   └── ...
+│   ├── datasets
+│   ├── logger
+│   ├── loss
+│   ├── metrics
+│   ├── model
+│   ├── trainer
+│   ├── transforms
+│   └── utils
+├── inference.py
+├── README.md
+├── requirements.txt
+├── train.py
+└── ...
+```
 
 ## Credits
 
-This repository is based on a heavily modified fork of [pytorch-template](https://github.com/victoresque/pytorch-template) and [asr_project_template](https://github.com/WrathOfGrapes/asr_project_template) repositories.
+This project is based on the [PyTorch Project Template](https://github.com/Blinorot/pytorch_project_template) by Petr Grinberg.
+
+The LCNN architecture follows [STC Antispoofing Systems for the ASVspoof2019 Challenge](https://arxiv.org/abs/1904.05576).
 
 ## License
 
