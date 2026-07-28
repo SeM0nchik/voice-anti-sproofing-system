@@ -78,18 +78,42 @@ Dataset paths are configured in `src/configs/datasets/`:
 
 ## How To Use
 
-### Training
+Here is a simple example how to train a model using a kaggle notebook:
+
+### Clone repository from github
+
+```bash
+!git clone --depth 1 https://github.com/SeM0nchik/voice-anti-sproofing-system
+%cd voice-anti-sproofing-system
+```
+
+### Install dependencies
+
+```bash
+!pip install -r requirements.txt
+```
+### Log in `wandb` or `conda` using api keys
+
+```bash
+import wandb
+from kaggle_secrets import UserSecretsClient
+
+user_secrets = UserSecretsClient()
+wandb_key = user_secrets.get_secret("WANDB_KEY")
+
+wandb.login(key=wandb_key)
+```
+Configs for logging provided in `src/configs/writer`.
+
+### Train a model
 
 ```bash
 python3 train.py -cn=baseline HYDRA_CONFIG_ARGUMENTS
 ```
 
-Trains an LCNN model on `train`, evaluates on `dev`/`eval` every epoch, and saves checkpoints
-to `saved/<run_name>/`. Logging goes to WandB or Comet ML (`src/configs/writer`).
+Trains an LCNN model on `train`, evaluates on `dev`/`eval` every epoch, and saves checkpoints to `saved/<run_name>/`.
 
 ### Inference / evaluation
-
-On Kaggle/Colab (dataset paths already match `src/configs/datasets/la.yaml`):
 
 ```bash
 python3 inference.py inferencer.from_pretrained=PATH_TO_CHECKPOINT.pth
