@@ -160,9 +160,18 @@ EER is computed on the full ASVspoof2019 LA eval set (71 237 utterances) with
 
 ## Credits
 
-This project is based on the [PyTorch Project Template](https://github.com/Blinorot/pytorch_project_template) by Petr Grinberg.
+This project is based on the [PyTorch Project Template](https://github.com/Blinorot/pytorch_project_template) by Petr Grinberg:
 
-The LCNN architecture follows [STC Antispoofing Systems for the ASVspoof2019 Challenge](https://arxiv.org/abs/1904.05576).
+```
+Grinberg, P. (2024). PyTorch Project Template [Computer software]. https://github.com/Blinorot/pytorch_project_template
+```
+
+The LCNN architecture follows [STC Antispoofing Systems for the ASVspoof2019 Challenge](https://arxiv.org/abs/1904.05576):
+
+```
+Lavrentyeva, G., Novoselov, S., Tseren, A., Volkova, M., Gorlanov, A., & Kozlov, A. (2019).
+STC Antispoofing Systems for the ASVspoof2019 Challenge. arXiv:1904.05576.
+```
 
 ## License
 
